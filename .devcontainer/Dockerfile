@@ -5,7 +5,7 @@
 ###########################################
 # Base image 
 ###########################################
-FROM ubuntu:22.04 AS base
+FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04 AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -142,3 +142,25 @@ ENV DEBIAN_FRONTEND=
 ###########################################
 #  Full+Gazebo+Nvidia image 
 ###########################################
+
+################
+# Expose the nvidia driver to allow opengl 
+# Dependencies for glvnd and X11.
+################
+RUN apt-get update \
+ && apt-get install -y -qq --no-install-recommends \
+  libglvnd0 \
+  libgl1 \
+  libglx0 \
+  libegl1 \
+  libxext6 \
+  libx11-6
+
+# Env vars for the nvidia-container-runtime.
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+ENV QT_X11_NO_MITSHM 1
+
+
+ARG WORKSPACE
+RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
