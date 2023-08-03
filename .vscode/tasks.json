@@ -3,12 +3,28 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
+        // Simulate task
+        {
+            "label": "simulate",
+            "detail": "Launch Gazebo Simulation",
+            "type": "shell",
+            "command": "./tasks/simulate.sh",
+            "problemMatcher": []
+        },
+        // Agent task
+        {
+            "label": "agent",
+            "detail": "Launch Micro XRCE Agent",
+            "type": "shell",
+            "command": "./tasks/agent.sh",
+            "problemMatcher": []
+        },
         // Build tasks
         {
             "label": "build",
             "detail": "Build workspace (default)",
             "type": "shell",
-            "command": "./build.sh",
+            "command": "./tasks/build.sh",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -19,7 +35,7 @@
             "label": "debug",
             "detail": "Build workspace (debug)",
             "type": "shell",
-            "command": "./build.sh",
+            "command": "./tasks/build.sh",
             "options": {
                 "env": {
                     "BUILD_TYPE": "Debug"
@@ -33,7 +49,7 @@
             "label": "test",
             "detail": "Run all unit tests and show results.",
             "type": "shell",
-            "command": "./test.sh",
+            "command": "./tasks/test.sh",
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -202,31 +218,10 @@
             "problemMatcher": []
         },
         {
-            "label": "import from workspace file",
-            "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
-            "type": "shell",
-            "command": "vcs import < src/ros2.repos src",
-            "problemMatcher": []
-        },
-        {
-            "label": "update workspace file",
-            "detail": "Use vcs to update repositories in src to workspace file.",
-            "type": "shell",
-            "command": "vcs export src > src/ros2.repos",
-            "problemMatcher": []
-        },
-        {
-            "label": "install dependencies",
-            "detail": "Install all dependencies specified in the workspaces package.xml files.",
-            "type": "shell",
-            "command": "sudo apt-get update && rosdep update && rosdep install --from-paths src --ignore-src -y",
-            "problemMatcher": []
-        },
-        {
             "label": "setup",
             "detail": "Set up the workspace",
             "type": "shell",
-            "command": "./setup.sh",
+            "command": "./tasks/setup.sh",
             "problemMatcher": []
         },
         {

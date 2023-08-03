@@ -2,7 +2,7 @@ repositories:
   frtl_2023:
     type: git
     url: https://github.com/Equipe-eVTOL-ITA/frtl_2023.git
-    version: drone
+    version: main
   simulation:
     type: git
     url: https://github.com/Equipe-eVTOL-ITA/simulation.git
