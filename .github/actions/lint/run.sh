@@ -1,5 +1,5 @@
 #!/bin/bash
 set -e
 
-./setup.sh
+./simulation_less/setup.sh
 ament_${LINTER} src/

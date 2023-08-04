@@ -6,6 +6,7 @@
 # Base image 
 ###########################################
 FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04 AS base
+# FROM ubuntu:22.04 AS base
 
 ENV DEBIAN_FRONTEND=noninteractive
 

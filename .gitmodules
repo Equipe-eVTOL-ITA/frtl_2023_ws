@@ -1,0 +1,12 @@
+[submodule "src/frtl_2023"]
+	path = src/frtl_2023
+	url = https://github.com/Equipe-eVTOL-ITA/frtl_2023.git
+	branch = main
+[submodule "src/simulation"]
+	path = src/simulation
+	url = https://github.com/Equipe-eVTOL-ITA/simulation.git
+	branch = main
+[submodule "src/fsm"]
+	path = src/fsm
+	url = https://github.com/Equipe-eVTOL-ITA/fsm.git
+	branch = main
