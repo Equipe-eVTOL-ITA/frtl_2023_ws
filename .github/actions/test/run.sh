@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-./simulation_less/setup.sh
-./build.sh
-./test.sh
+./tasks/simulation_less/setup.sh
+./tasks/build.sh
+./tasks/test.sh

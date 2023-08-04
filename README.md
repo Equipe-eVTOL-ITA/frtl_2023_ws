@@ -30,6 +30,10 @@ Mantendo as duas últimas linhas, retire as linhas após esse comentário:
 
 Por fim, no arquivo `devcontainer.json`, remova o argumento `"--gpus", "all"` de `"runArgs"`.
 
+### Configurar para GPU
+
+Caso você queira usar a GPU para acelerar a renderização gráfica do simulador, é necessário instalar os drivers da Nvidia e o [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
 ### Inicialize o container
 
 Cline no ícone no canto inferior direito e selecione a opção `Rebuild with container`.
