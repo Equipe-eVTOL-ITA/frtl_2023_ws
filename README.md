@@ -34,6 +34,15 @@ Por fim, no arquivo `devcontainer.json`, remova o argumento `"--gpus", "all"` de
 
 Caso você queira usar a GPU para acelerar a renderização gráfica do simulador, é necessário instalar os drivers da Nvidia e o [Nvidia Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
+O tutorial não está completo. Você pode pular a seção sobre o CDI. Rode os seguintes comandos antes do tutorial:
+
+```bash
+sudo -i
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu22.04/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list
+exit
+```
+
 ### Inicialize o container
 
 Cline no ícone no canto inferior direito e selecione a opção `Rebuild with container`.
