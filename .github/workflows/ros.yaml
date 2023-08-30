@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches: 
-      - dev
+      - development
       - main
   workflow_dispatch:
     
@@ -14,11 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - 
-        name: Checkout code
+        name: Checkout code 
         uses: actions/checkout@v3
       -
         name: Test
         uses: ./.github/actions/test/
+        env:
+          GIT_CREDENTIALS: ${{ secrets.GIT_CREDENTIALS }}
 
   complete:
     name: Tests passed
