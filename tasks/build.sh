@@ -38,6 +38,10 @@ else
     exit 1
 fi
 
+if [-e install/setup.bash]; then
+    source install/setup.bash
+fi
+
 # Set the default build type
 BUILD_TYPE=RelWithDebInfo
 colcon build \
