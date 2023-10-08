@@ -8,7 +8,7 @@
             "label": "simulate",
             "detail": "Launch Gazebo Simulation",
             "type": "shell",
-            "command": "./tasks/simulate.sh",
+            "command": "./tasks/simulate.sh ${input:camera}",
             "problemMatcher": []
         },
         // Agent task
@@ -115,7 +115,11 @@
                 "frtl_2023",
                 "dependencies",
                 "fsm",
-                "simulation"
+                "simulation",
+                "fase1",
+                "fase2",
+                "fase3",
+                "fase4"
             ],
             "default": "all"
         },
@@ -138,6 +142,17 @@
                 "\"without simulation\""
             ],
             "default": "With simulation"
-        }
+        },
+        {
+            "id" : "camera",
+            "description": "Choose between simulate with or without camera.",
+            "type": "pickString",
+            "options": [
+                "\"com camera\"",
+                "\"sem camera\""
+            ],
+            "default": "com camera"
+        },
+
     ]
 }
