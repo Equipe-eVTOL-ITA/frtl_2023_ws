@@ -78,19 +78,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN rosdep init || echo "rosdep already initialized"
 
+
+# Create a non-root user
 ARG USERNAME=ros
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Create a non-root user
 RUN groupadd --gid $USER_GID $USERNAME \
   && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
   # Add sudo support for the non-root user
   && apt-get update \
   && apt-get install -y sudo \
-  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
+  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
   && chmod 0440 /etc/sudoers.d/$USERNAME \
-  && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/* \
+  # Ensure /run/user/1000 directory exists and has correct permissions
+  && mkdir -p /run/user/1000 \
+  && chown -R $USER_UID:$USER_GID /run/user/1000
 
 # Set up autocompletion for user
 RUN apt-get update && apt-get install -y git-core bash-completion \

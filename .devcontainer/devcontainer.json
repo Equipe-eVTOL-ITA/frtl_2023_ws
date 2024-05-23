@@ -1,4 +1,3 @@
-// See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
 	"dockerFile": "Dockerfile",
 	"build": {
@@ -16,17 +15,14 @@
 		"--volume=/mnt/wslg:/mnt/wslg",
 		"--ipc=host",
 		"--gpus", "all"
-		// uncomment to use intel iGPU
-		// "--device=/dev/dri"
 	],
 	"containerEnv": {
-		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
+		"DISPLAY": "${localEnv:DISPLAY}",
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
-		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+		"XDG_RUNTIME_DIR": "/run/user/1000",
 		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
-		"LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
+		"LIBGL_ALWAYS_SOFTWARE": "1"
 	},
-	// Set *default* container specific settings.json values on container create.
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -39,8 +35,6 @@
 				"redhat.vscode-yaml",
 				"ms-iot.vscode-ros",
 				"smilerobotics.urdf",
-				//"streetsidesoftware.code-spell-checker",
-				//"streetsidesoftware.code-spell-checker-portuguese",
 				"twxs.cmake",
 				"yzhang.markdown-all-in-one",
 				"zachflower.uncrustify"
