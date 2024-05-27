@@ -165,6 +165,7 @@ RUN apt-get update \
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENV QT_X11_NO_MITSHM 1
+ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
 
 ARG WORKSPACE
