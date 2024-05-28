@@ -46,6 +46,7 @@ RUN sudo add-apt-repository universe \
   && apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-ros-base \
     python3-argcomplete \
+    libfastrtps-dev \
   && rm -rf /var/lib/apt/lists/*
 
 ENV ROS_DISTRO=humble
